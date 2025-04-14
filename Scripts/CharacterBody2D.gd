@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+signal game_over(reason: String)
 @onready var animatedSprite = $AnimatedSprite2D
 
 const SPEED = 300.0
@@ -27,13 +27,25 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	var camera := get_viewport().get_camera_2d()
+	var screen_top = camera.global_position.y - get_viewport_rect().size.y/2
+	
+	if global_position.y < screen_top:
+		emit_signal("game_over", "out_of_bounds")
+		print("Out of bounds!")  # Debug
 
 func _process(delta):
 	animate()
 	flip()
 	
 func animate():
-	pass
+	if not is_on_floor():
+		animatedSprite.play("jump")	
+	elif abs(velocity.x) > 0.05:
+		animatedSprite.play("run")
+	else:
+		animatedSprite.play("idle")
 	
 func flip():
 	if velocity.x < -0.5 and is_facing_right:
@@ -43,3 +55,15 @@ func flip():
 		scale.x *= -1
 		is_facing_right = true	
 	
+var health := 4
+var can_take_damage := true
+
+func take_damage():
+	if can_take_damage:
+		health -= 1
+		if health <= 0:
+			emit_signal("game_over", "health_depleted")
+		# Add temporary invincibility (we'll implement animation later)
+		can_take_damage = false
+		await get_tree().create_timer(3.0).timeout
+		can_take_damage = true

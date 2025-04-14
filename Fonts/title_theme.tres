@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d213qxnwhb3cj"]
+
+[ext_resource type="FontFile" uid="uid://gytgk1mjopxc" path="res://Fonts/rubber-biscuit.bold.ttf" id="1_j86iv"]
+
+[resource]
+default_font = ExtResource("1_j86iv")
+default_font_size = 72
