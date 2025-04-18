@@ -67,3 +67,7 @@ func take_damage():
 		can_take_damage = false
 		await get_tree().create_timer(3.0).timeout
 		can_take_damage = true
+
+
+func restore_health():
+	health = 4
