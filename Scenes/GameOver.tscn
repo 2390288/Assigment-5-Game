@@ -52,18 +52,17 @@ theme = SubResource("Theme_u7pxo")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-text = "Game Over"
+text = "GAME_OBJECTIVE_GAMEOVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RestartButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "Restart"
+text = "MENU_LABEL_PLAY_AGAIN"
 
 [node name="MainMenuButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "Main Menu
-"
+text = "MENU_LABEL_MAINMENU"
 
 [node name="CurrentScoreLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2

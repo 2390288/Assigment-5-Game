@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6idknklacj8v"]
+[gd_scene load_steps=17 format=3 uid="uid://b6idknklacj8v"]
 
 [ext_resource type="Script" path="res://Scenes/boulder_dash.gd" id="1_4n1wd"]
 [ext_resource type="Texture2D" uid="uid://beljn1w1haf1q" path="res://Assets/Tile_02.png" id="1_chi5k"]
@@ -143,7 +143,6 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 23
 text = "Avoid the falling rocks & survive the longest"
 
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DepthLabel" type="Label" parent="CanvasLayer"]
@@ -176,6 +175,5 @@ max_value = 4.0
 texture_under = ExtResource("11_orcrf")
 texture_progress = ExtResource("12_jghco")
 script = ExtResource("13_ho4t2")
-
 
 [connection signal="timeout" from="RockSpawner/Timer" to="RockSpawner" method="_on_timer_timeout"]

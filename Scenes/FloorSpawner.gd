@@ -40,8 +40,6 @@ func spawn_row():
 			if randf() < 0.10:  # 10% of gaps get potions
 				var potion = health_potion_scene.instantiate()
 				potion.global_position = pos
-				# In FloorSpawner.gd inside the potion spawn block:
-				print("Spawning potion at: ", pos)
 				
 				# Add to same parent as rocks for proper positioning
 				hard_tiles_node.get_parent().call_deferred("add_child", potion)

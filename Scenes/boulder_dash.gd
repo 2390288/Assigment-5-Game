@@ -17,4 +17,4 @@ func _on_depth_updated(new_depth: int):
 
 func _on_game_over(reason: String):
 	SaveSystem.save_score(player.max_depth)
-	get_tree().change_scene_to_file("res://Scenes/GameOver.tscn")
+	SceneManager.change_scene("res://Scenes/GameOver.tscn")
