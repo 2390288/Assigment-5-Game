@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm5gvmlp6kfmb"]
+
+[ext_resource type="Texture2D" uid="uid://3i4o7w6gyn88" path="res://Assets/RQWVPVZ.png" id="1_erfl7"]
+[ext_resource type="Script" path="res://Scripts/health_potion.gd" id="1_h4xnx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27ds5"]
+size = Vector2(20, 25)
+
+[node name="HealthPotion" type="Area2D"]
+collision_layer = 128
+script = ExtResource("1_h4xnx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04675, 0.04125)
+texture = ExtResource("1_erfl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_27ds5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
