@@ -15,9 +15,24 @@ run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+
+[autoload]
+
+SceneManager="*res://addons/scene_manager/SceneManager.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/scene_manager/plugin.cfg")
+
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/PolyglotGamedev - Master.en.translation", "res://Assets/PolyglotGamedev - Master.fr.translation")
+
 [autoload]
 
 SaveSystem="*res://Scripts/SaveSystem.gd"
+
 
 [layer_names]
 
