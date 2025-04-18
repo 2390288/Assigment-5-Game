@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2rcxrs12cvs3"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nxnsl"]
+[ext_resource type="Texture2D" uid="uid://c2e8rg04pnrhi" path="res://Assets/Free-Mountain-Backgrounds-Pixel-Art9.png" id="1_oj02b"]
+[ext_resource type="FontFile" uid="uid://gytgk1mjopxc" path="res://Fonts/rubber-biscuit.bold.ttf" id="2_2yiwn"]
+[ext_resource type="Theme" uid="uid://d213qxnwhb3cj" path="res://Fonts/title_theme.tres" id="3_xls81"]
+
+[sub_resource type="Theme" id="Theme_vcwsy"]
+default_font = ExtResource("2_2yiwn")
+default_font_size = 22
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_nxnsl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_oj02b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 26
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_xls81")
+theme_override_colors/font_color = Color(0.780392, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 4
+text = "Boulder Dash"
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="ExitGameButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="HighScoreLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_vcwsy")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "Your HighScore: 0m"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

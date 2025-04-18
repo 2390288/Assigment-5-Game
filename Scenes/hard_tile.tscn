@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgrup12fsncha"]
+
+[ext_resource type="Script" path="res://Scripts/hard_tile.gd" id="1_epi1q"]
+[ext_resource type="Texture2D" uid="uid://b2yh6uyeyv3ma" path="res://Assets/Tile_30.png" id="1_jfgxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jc2ro"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nunrw"]
+size = Vector2(32, 6)
+
+[node name="HardTile" type="StaticBody2D"]
+script = ExtResource("1_epi1q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jfgxp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_jc2ro")
+
+[node name="BreakableArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BreakableArea"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_nunrw")
+
+[connection signal="body_entered" from="BreakableArea" to="." method="_on_breakable_area_body_entered"]
