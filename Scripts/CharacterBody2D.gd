@@ -101,6 +101,11 @@ func take_damage():
 		blink_tween.kill()
 		animatedSprite.modulate.a = 1.0
 		can_take_damage = true
+
+
+func restore_health():
+	health = 4
+
 		
 var health: int = 4:
 	set(new_value):
