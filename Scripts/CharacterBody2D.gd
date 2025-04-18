@@ -4,12 +4,26 @@ signal game_over(reason: String)
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+signal depth_updated(new_depth: int)
+
+var current_depth := 0
+var max_depth := 0
+var start_y: float
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_right = true
 
+func _ready():
+	start_y = global_position.y
+
 func _physics_process(delta):
+	current_depth = int((global_position.y - start_y) / 32 * 3)
+	
+	if current_depth > max_depth:
+		max_depth = current_depth
+		emit_signal("depth_updated", max_depth)
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta

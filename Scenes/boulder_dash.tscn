@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6idknklacj8v"]
+[gd_scene load_steps=13 format=3 uid="uid://b6idknklacj8v"]
 
 [ext_resource type="Script" path="res://Scenes/boulder_dash.gd" id="1_4n1wd"]
 [ext_resource type="Texture2D" uid="uid://beljn1w1haf1q" path="res://Assets/Tile_02.png" id="1_chi5k"]
 [ext_resource type="Texture2D" uid="uid://c2e8rg04pnrhi" path="res://Assets/Free-Mountain-Backgrounds-Pixel-Art9.png" id="2_fa256"]
+[ext_resource type="Script" path="res://Scenes/Depth.gd" id="3_4wbsk"]
 [ext_resource type="PackedScene" uid="uid://qijcjx6cmcoi" path="res://Scenes/main_character.tscn" id="3_x35cg"]
 [ext_resource type="Script" path="res://Scripts/RockSpawner.gd" id="4_6li3k"]
 [ext_resource type="Texture2D" uid="uid://b2yh6uyeyv3ma" path="res://Assets/Tile_30.png" id="4_iqrwy"]
@@ -137,5 +138,17 @@ theme_override_colors/font_color = Color(0.811765, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 23
 text = "Avoid the falling rocks & survive the longest"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DepthLabel" type="Label" parent="CanvasLayer"]
+offset_right = 2210.0
+offset_bottom = 97.0
+theme = ExtResource("10_j6osf")
+theme_override_colors/font_color = Color(0.811765, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 23
+text = "Avoid the falling rocks & survive the longest"
+script = ExtResource("3_4wbsk")
 
 [connection signal="timeout" from="RockSpawner/Timer" to="RockSpawner" method="_on_timer_timeout"]
