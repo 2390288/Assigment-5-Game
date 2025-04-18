@@ -11,6 +11,9 @@
 [ext_resource type="Script" path="res://Scenes/FloorSpawner.gd" id="7_qkw54"]
 [ext_resource type="Theme" uid="uid://d213qxnwhb3cj" path="res://Fonts/title_theme.tres" id="10_j6osf"]
 [ext_resource type="AudioStream" uid="uid://bbmk7go21sst2" path="res://Assets/Audio/mixkit-negative-guitar-tone-2324.wav" id="11_7ik22"]
+[ext_resource type="Texture2D" uid="uid://dlb2cqtxqbxel" path="res://Assets/LifeBarMiniUnder.png" id="11_orcrf"]
+[ext_resource type="Texture2D" uid="uid://ch1ra2wm7y5js" path="res://Assets/LifeBarMiniProgress.png" id="12_jghco"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="13_ho4t2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6a4y"]
 size = Vector2(32, 1996)
@@ -141,5 +144,23 @@ text = "Avoid the falling rocks & survive the longest"
 
 [node name="HurtSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_7ik22")
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+offset = Vector2(-250, 50)
+transform = Transform2D(1, 0, 0, 1, -250, 50)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(10.3327, 6.84539)
+size_flags_horizontal = 0
+max_value = 4.0
+texture_under = ExtResource("11_orcrf")
+texture_progress = ExtResource("12_jghco")
+script = ExtResource("13_ho4t2")
 
 [connection signal="timeout" from="RockSpawner/Timer" to="RockSpawner" method="_on_timer_timeout"]

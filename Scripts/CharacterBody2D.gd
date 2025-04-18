@@ -4,6 +4,8 @@ signal game_over(reason: String)
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+signal health_changed(new_value: int)
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -56,7 +58,7 @@ func flip():
 		scale.x *= -1
 		is_facing_right = true	
 	
-var health := 4
+
 var can_take_damage := true
 var blink_tween: Tween
 
@@ -72,6 +74,7 @@ func take_damage():
 		blink_tween.tween_property(animatedSprite, "modulate:a", 0.3, 0.15)
 		blink_tween.tween_property(animatedSprite, "modulate:a", 1.0, 0.15)
 		
+		
 		# Check for death
 		if health <= 0:
 			emit_signal("game_over", "health_depleted")
@@ -82,7 +85,14 @@ func take_damage():
 		animatedSprite.modulate.a = 1.0
 		can_take_damage = true
 		
+var health: int = 4:
+	set(new_value):
+		var prev = health
+		health = clamp(new_value, 0, 4)
+		if health != prev:
+			health_changed.emit(health)
+		
+		
 func _input(event):
 	if event.is_action_pressed("ui_down"):
 		take_damage()
-		print("Debug: Current Health = ", health)
