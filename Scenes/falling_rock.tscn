@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsl373qjdk302"]
+[gd_scene load_steps=3 format=3 uid="uid://dbv18ih1nuvmo"]
 
 [ext_resource type="Script" path="res://Scripts/FallingRock.gd" id="1_oo0j7"]
-[ext_resource type="Texture2D" path="res://Assets/Rock.png" id="2_gga31"]
+[ext_resource type="Texture2D" uid="uid://dhbi8si5ms7tm" path="res://Assets/Rock.png" id="2_gga31"]
 
 [node name="FallingRock" type="RigidBody2D"]
 collision_layer = 8

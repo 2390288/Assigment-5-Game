@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgureyhnripkp"]
+[gd_scene load_steps=6 format=3 uid="uid://c2rcxrs12cvs3"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_nxnsl"]
-[ext_resource type="Texture2D" path="res://Assets/Free-Mountain-Backgrounds-Pixel-Art9.png" id="1_oj02b"]
-[ext_resource type="FontFile" path="res://Fonts/rubber-biscuit.bold.ttf" id="2_2yiwn"]
-[ext_resource type="Theme" path="res://Fonts/title_theme.tres" id="3_xls81"]
+[ext_resource type="Texture2D" uid="uid://c2e8rg04pnrhi" path="res://Assets/Free-Mountain-Backgrounds-Pixel-Art9.png" id="1_oj02b"]
+[ext_resource type="FontFile" uid="uid://gytgk1mjopxc" path="res://Fonts/rubber-biscuit.bold.ttf" id="2_2yiwn"]
+[ext_resource type="Theme" uid="uid://d213qxnwhb3cj" path="res://Fonts/title_theme.tres" id="3_xls81"]
 
 [sub_resource type="Theme" id="Theme_vcwsy"]
 default_font = ExtResource("2_2yiwn")

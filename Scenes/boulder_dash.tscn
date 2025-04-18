@@ -1,15 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ot2laxahjviy"]
+[gd_scene load_steps=12 format=3 uid="uid://b6idknklacj8v"]
 
 [ext_resource type="Script" path="res://Scenes/boulder_dash.gd" id="1_4n1wd"]
-[ext_resource type="Texture2D" path="res://Assets/Tile_02.png" id="1_chi5k"]
-[ext_resource type="Texture2D" path="res://Assets/Free-Mountain-Backgrounds-Pixel-Art9.png" id="2_fa256"]
+[ext_resource type="Texture2D" uid="uid://beljn1w1haf1q" path="res://Assets/Tile_02.png" id="1_chi5k"]
+[ext_resource type="Texture2D" uid="uid://c2e8rg04pnrhi" path="res://Assets/Free-Mountain-Backgrounds-Pixel-Art9.png" id="2_fa256"]
 [ext_resource type="PackedScene" uid="uid://qijcjx6cmcoi" path="res://Scenes/main_character.tscn" id="3_x35cg"]
 [ext_resource type="Script" path="res://Scripts/RockSpawner.gd" id="4_6li3k"]
-[ext_resource type="Texture2D" path="res://Assets/Tile_30.png" id="4_iqrwy"]
+[ext_resource type="Texture2D" uid="uid://b2yh6uyeyv3ma" path="res://Assets/Tile_30.png" id="4_iqrwy"]
 [ext_resource type="Script" path="res://Scenes/Camera2D.gd" id="4_n5s3k"]
-[ext_resource type="Texture2D" path="res://Assets/Tile_14.png" id="5_qtvwi"]
+[ext_resource type="Texture2D" uid="uid://k7n7td2fclyg" path="res://Assets/Tile_14.png" id="5_qtvwi"]
 [ext_resource type="Script" path="res://Scenes/FloorSpawner.gd" id="7_qkw54"]
-[ext_resource type="Theme" path="res://Fonts/title_theme.tres" id="10_j6osf"]
+[ext_resource type="Theme" uid="uid://d213qxnwhb3cj" path="res://Fonts/title_theme.tres" id="10_j6osf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6a4y"]
 size = Vector2(32, 1996)
