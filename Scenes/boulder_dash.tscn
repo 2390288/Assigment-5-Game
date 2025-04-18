@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6idknklacj8v"]
+[gd_scene load_steps=16 format=3 uid="uid://b6idknklacj8v"]
 
 [ext_resource type="Script" path="res://Scenes/boulder_dash.gd" id="1_4n1wd"]
 [ext_resource type="Texture2D" uid="uid://beljn1w1haf1q" path="res://Assets/Tile_02.png" id="1_chi5k"]
