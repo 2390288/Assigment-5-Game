@@ -48,11 +48,11 @@ text = "Boulder Dash"
 
 [node name="StartGameButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "Start Game"
+text = "MENU_LABEL_PRESS_START"
 
 [node name="ExitGameButton" type="Button" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-text = "Exit Game"
+text = "MENU_LABEL_EXIT"
 
 [node name="HighScoreLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -60,9 +60,19 @@ theme = SubResource("Theme_vcwsy")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
-text = "Your HighScore: 0m"
+text = "GAME_OBJECTIVE_HIGH_SCORE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="EnglishButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "English"
+
+[node name="FrenchButton" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "French"
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/EnglishButton" to="." method="_on_english_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/FrenchButton" to="." method="_on_french_button_pressed"]
