@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_facing_right = true
+@onready var hurt_sound = $"../HurtSound"
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -57,13 +58,31 @@ func flip():
 	
 var health := 4
 var can_take_damage := true
+var blink_tween: Tween
 
 func take_damage():
 	if can_take_damage:
+		# Start invincibility
+		can_take_damage = false
+		hurt_sound.play()
 		health -= 1
+		
+		# Blink animation
+		blink_tween = create_tween().set_loops()
+		blink_tween.tween_property(animatedSprite, "modulate:a", 0.3, 0.15)
+		blink_tween.tween_property(animatedSprite, "modulate:a", 1.0, 0.15)
+		
+		# Check for death
 		if health <= 0:
 			emit_signal("game_over", "health_depleted")
-		# Add temporary invincibility (we'll implement animation later)
-		can_take_damage = false
+		
+		# Wait for invincibility duration
 		await get_tree().create_timer(3.0).timeout
+		blink_tween.kill()
+		animatedSprite.modulate.a = 1.0
 		can_take_damage = true
+		
+func _input(event):
+	if event.is_action_pressed("ui_down"):
+		take_damage()
+		print("Debug: Current Health = ", health)

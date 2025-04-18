@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6idknklacj8v"]
+[gd_scene load_steps=13 format=3 uid="uid://b6idknklacj8v"]
 
 [ext_resource type="Script" path="res://Scenes/boulder_dash.gd" id="1_4n1wd"]
 [ext_resource type="Texture2D" uid="uid://beljn1w1haf1q" path="res://Assets/Tile_02.png" id="1_chi5k"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://k7n7td2fclyg" path="res://Assets/Tile_14.png" id="5_qtvwi"]
 [ext_resource type="Script" path="res://Scenes/FloorSpawner.gd" id="7_qkw54"]
 [ext_resource type="Theme" uid="uid://d213qxnwhb3cj" path="res://Fonts/title_theme.tres" id="10_j6osf"]
+[ext_resource type="AudioStream" uid="uid://bbmk7go21sst2" path="res://Assets/Audio/mixkit-negative-guitar-tone-2324.wav" id="11_7ik22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p6a4y"]
 size = Vector2(32, 1996)
@@ -137,5 +138,8 @@ theme_override_colors/font_color = Color(0.811765, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 23
 text = "Avoid the falling rocks & survive the longest"
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_7ik22")
 
 [connection signal="timeout" from="RockSpawner/Timer" to="RockSpawner" method="_on_timer_timeout"]
