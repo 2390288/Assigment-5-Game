@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyjpaaven2cvw"]
+
+[ext_resource type="Texture2D" uid="uid://dlb2cqtxqbxel" path="res://Assets/LifeBarMiniUnder.png" id="1_ebhon"]
+[ext_resource type="Texture2D" uid="uid://ch1ra2wm7y5js" path="res://Assets/LifeBarMiniProgress.png" id="2_ac52e"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="3_80fr4"]
+
+[node name="HealthBar" type="Node2D"]
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthBar"]
+offset_right = 18.0
+offset_bottom = 4.0
+scale = Vector2(3.89695, 3.7454)
+max_value = 5.0
+texture_under = ExtResource("1_ebhon")
+texture_progress = ExtResource("2_ac52e")
+script = ExtResource("3_80fr4")
